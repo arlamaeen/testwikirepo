@@ -9,8 +9,8 @@ on:
 jobs:
   printJob:    
     name: Event gollum
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/development'
+    runs-on: ubuntu-latest 
+    if: ${{((github.event_name == 'push' ) ) && ( github.ref == 'refs/heads/development' )}}
     steps:
     - name: Display payload
       env:
