@@ -17,11 +17,3 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "$GITHUB_CONTEXT"
-    - name: Github Wiki notifications for Teams
-      uses: sgefdf/action-teams-gollum-notification@v1.1
-      env:
-        # A webhook URL to a Teams channel you want notifications to be sent to.
-        WEBHOOK_URL: ${{ secrets.DEVSTACK_WEBHOOK_URL }}
-    - name: Trigger pwsh
-      run: |
-        write-host "Trigger mo na si push file sa storage"
