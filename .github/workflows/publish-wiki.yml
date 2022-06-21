@@ -22,6 +22,10 @@ jobs:
           repository:  ${{env.repository}}
           ref: 'master'
           path: 'testwikirepo.wiki'
+          token: ${{ github.token }}
+          lfs: 'true'
+          clean: 'true'
+          fetch-depth: 0
       - name: "Variable"
         run: | 
              echo `Repository :  ${{env.repository}}`
