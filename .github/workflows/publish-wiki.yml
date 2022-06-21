@@ -2,7 +2,7 @@ name: Admiral User Wiki Publish
 concurrency: admiral-publish-user-wiki
 
 env:
-  repository: barlamaeen/testwikirepo.wiki'
+  repository: arlamaeen/testwikirepo.wiki'
 on:
   workflow_dispatch:
     inputs:
@@ -21,7 +21,7 @@ jobs:
         with:
           repository:  ${{env.repository}}
           ref: 'master'
-          path: 'mywiki-event.wiki'
+          path: 'testwikirepo.wiki'
       - name: "Variable"
         run: | 
              echo `Repository :  ${{env.repository}}`
