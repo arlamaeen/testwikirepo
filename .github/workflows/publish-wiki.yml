@@ -1,0 +1,28 @@
+name: Admiral User Wiki Publish
+concurrency: admiral-publish-user-wiki
+
+env:
+  repository: barlamaeen/testwikirepo.wiki'
+on:
+  workflow_dispatch:
+    inputs:
+      environment: 
+        type : choice
+        description: Select the enviroment
+        options:
+        - d
+        - p
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out wiki
+        uses: actions/checkout@v2
+        with:
+          repository:  ${{env.repository}}
+          ref: 'master'
+          path: 'mywiki-event.wiki'
+      - name: "Variable"
+        run: | 
+             echo `Repository :  ${{env.repository}}`
+             echo `Environment :  ${{ github.event.inputs.environment }}`
