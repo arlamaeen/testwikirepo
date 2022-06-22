@@ -11,8 +11,10 @@ jobs:
  zip-files:
   runs-on: ubuntu-latest
   steps:
-    - name : Zip file
-    - uses: actions/checkout@v2 
+    - name: Check out repo
+      uses: actions/checkout@v2
+    - name: Check out wiki
+      uses: actions/checkout@v2
       with:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
