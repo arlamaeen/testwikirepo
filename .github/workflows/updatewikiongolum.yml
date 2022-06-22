@@ -13,7 +13,7 @@ jobs:
     - name: Check out wiki
       uses: actions/checkout@v2
       with:
-          repository: 'arlamaeen/testwikirepo/.wiki'
+          repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
           path: 'arlamaeen/testwikirepo' 
     - name: Archive Release
