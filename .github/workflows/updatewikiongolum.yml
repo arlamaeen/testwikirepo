@@ -21,7 +21,7 @@ jobs:
           dest: user-wiki.zip
     - uses: actions/upload-artifact@v1
       with:
-         name: my-artifact
+         name: wiki-artifact
          path: ${{ github.workspace }}/result.zip
  publish-dev:
     if: github.event_name == 'workflow_dispatch'
