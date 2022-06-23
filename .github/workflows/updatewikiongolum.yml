@@ -18,9 +18,7 @@ jobs:
           path: 'arlamaeen/testwikirepo'  
     - name: Zip Published 
       run: |
-        pushd arlamaeen/testwikirepo/user-wiki
-        zip -r user-wiki.zip *
-        popd
+        pushd arlamaeen/testwikirepo/user-wiki zip -r user-wiki.zip * 
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       with:
