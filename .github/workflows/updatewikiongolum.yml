@@ -19,7 +19,7 @@ jobs:
     - name: Zip Published 
       run: |
         pushd arlamaeen/testwikirepo/user-wiki
-        zip -r user-wiki.zip .
+        zip -r user-wiki.zip *
         popd
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
