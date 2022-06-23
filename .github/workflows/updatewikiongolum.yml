@@ -58,4 +58,5 @@ jobs:
     - name : 'Upload zip to Admiral'   
       shell: pwsh
       run: |
-       .\uploadRepoToBlobStorage.ps1
+        write-host "Trigger mo na si push file sa dev storage"
+        write-host "${{ toJSON(github.event.inputs) }}"
