@@ -15,17 +15,9 @@ jobs:
       with:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
-          path: 'arlamaeen/testwikirepo' 
-    - name: Archive Release
-      uses: thedoctor0/zip-release@main
-      with:
-        type: 'zip'
-        filename: 'user-wiki.zip'
-        path: 'arlamaeen/testwikirepo/user-wiki/'
-    - uses: vimtor/action-zip@v1
-      with:
-          files: 'arlamaeen/testwikirepo/user-wiki/'
-          dest: 'user-wiki.zip'
+          path: 'arlamaeen/testwikirepo'  
+    - name: Zip Folder
+      run: zip -r user-wiki.zip .  
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       with:
