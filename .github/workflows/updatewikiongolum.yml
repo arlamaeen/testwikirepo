@@ -29,10 +29,7 @@ jobs:
     name: Zip and Publish to Dev
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-        path : user-wiki
+    - uses: actions/checkout@v2 
     - name: Display payload
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -52,16 +49,13 @@ jobs:
     if: ${{github.event_name == 'workflow_dispatch'}}
     name: Zip and Publish to Prod
     runs-on: ubuntu-latest  
-    steps:
-    - uses: actions/checkout@v2
+    steps: 
+    - name: 'Download zip files'
+      uses: actions/download-artifact@v2
       with:
-        fetch-depth: 0
-        path : user-wiki
-    - name: Trigger pwsh
+        name: ${{env.fileName}}
+        path: ${{ github.workspace }}/
+    - name : 'Upload zip to Admiral'   
       shell: pwsh
       run: |
-        write-host "Trigger mo na si push file sa dev storage"
-        write-host "${{ toJSON(github.event.inputs) }}"
-      run: |
-        write-host "Trigger mo na si push file sa prod storage"
-        write-host "${{ toJSON(github.event.inputs) }}"
+       ./uploadRepoToBlobStorage.ps1
