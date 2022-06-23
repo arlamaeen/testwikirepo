@@ -16,13 +16,9 @@ jobs:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
           path: 'arlamaeen/testwikirepo'  
-    - name: Install composer dependencies
-      run: |
-        composer install --no-scripts
-      working-directory: user-wiki
     - name: Zip Published 
-      run: |
-        zip -r user-wiki.zip ./
+      shell: pwsh
+      run: Compress-Archive -Path "arlamaeen/testwikirepo/*" -DestinationPath "${{ inputs.artifact_name }}.zip" -Force
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       with:
