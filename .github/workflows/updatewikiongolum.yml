@@ -58,4 +58,4 @@ jobs:
     - name : 'Upload zip to Admiral'   
       shell: pwsh
       run: |
-       ./uploadRepoToBlobStorage.ps1
+       .\uploadRepoToBlobStorage.ps1
