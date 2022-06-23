@@ -60,5 +60,8 @@ jobs:
     - name: Trigger pwsh
       shell: pwsh
       run: |
+        write-host "Trigger mo na si push file sa dev storage"
+        write-host "${{ toJSON(github.event.inputs) }}"
+      run: |
         write-host "Trigger mo na si push file sa prod storage"
         write-host "${{ toJSON(github.event.inputs) }}"
