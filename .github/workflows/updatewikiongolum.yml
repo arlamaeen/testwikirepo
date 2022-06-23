@@ -18,7 +18,7 @@ jobs:
           path: 'arlamaeen/testwikirepo'  
     - name: Zip Published 
       shell: pwsh
-      run: Compress-Archive -Path /user-wiki/* -DestinationPath "arlamaeen/testwikirepo/admiral-user-doc-v2.zip" -Force
+      run: Compress-Archive -Path '/testwikirepo/arlamaeen/testwikirepo/user-wiki/*' -DestinationPath "arlamaeen/testwikirepo/admiral-user-doc-v2.zip" -Force
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       with:
