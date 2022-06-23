@@ -17,5 +17,6 @@ jobs:
     steps:
       - uses: actions/download-artifact@v1
         with:
-          name: file 
+          name: file
+          path: ${{github.workSpace}}/file.txt
       - run: cat ${{github.workSpace}}/file.txt
