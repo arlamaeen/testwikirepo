@@ -16,10 +16,13 @@ jobs:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
           path: 'arlamaeen/testwikirepo'  
-    - name: Zip Published 
-      working-directory: arlamaeen/testwikirepo
+    - name: Install composer dependencies
       run: |
-        zip -r user-wiki.zip /user-wiki/*
+        composer install --no-scripts
+      working-directory: ./user-wiki
+    - name: Zip Published 
+      run: |
+        zip -r user-wiki.zip ./
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       with:
