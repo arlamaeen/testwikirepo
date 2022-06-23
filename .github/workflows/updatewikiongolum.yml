@@ -17,7 +17,7 @@ jobs:
           ref: 'master'
           path: 'arlamaeen/testwikirepo'  
     - name: Zip Folder
-      run: zip -r user-wiki.zip .  
+      run: zip -r user-wiki.zip ./user-wiki
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       with:
