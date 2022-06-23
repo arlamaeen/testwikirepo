@@ -53,4 +53,4 @@ jobs:
     - uses: actions/checkout@v2 
     - name : 'Upload zip to Admiral'   
       shell: pwsh
-      run: powershell .\uploadRepoToBlobStorage.ps1
+      run: .\uploadRepoToBlobStorage.ps1
