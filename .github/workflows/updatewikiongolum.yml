@@ -15,15 +15,7 @@ jobs:
       with:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
-          path: 'arlamaeen/testwikirepo'
-    - name: Install composer dependencies
-      id: dir
-      run: |
-        composer install --no-scripts
-      working-directory: arlamaeen/testwikirepo/user-wiki
-    - name: 'Echo path'
-      run: | 
-            echo ${{steps.dir.outputs.working-directory}}
+          path: 'arlamaeen/testwikirepo'  
    # - name: Zip Published 
    #   shell: pwsh
    #   run: Compress-Archive -Path "arlamaeen/testwikirepo/*" -DestinationPath "user-wiki" -Force
@@ -67,10 +59,10 @@ jobs:
     steps:
     - name: 'Download zip files'
       id: 'download'
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
-        name: user-wiki.zip
-        path: ~/admiral-artifact
+        name: user-wiki
+        path: ~/download/path
     - name: 'Echo download path'
       run: | 
             echo ${{steps.download.outputs.download-path}}
