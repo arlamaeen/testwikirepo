@@ -16,15 +16,15 @@ jobs:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
           path: 'arlamaeen/testwikirepo'  
-   # - name: Zip Published 
-   #   shell: pwsh
-   #   run: Compress-Archive -Path "arlamaeen/testwikirepo/*" -DestinationPath "user-wiki" -Force
+    - name: Zip Published 
+      shell: pwsh
+      run: Compress-Archive -Path "arlamaeen/testwikirepo/*" -DestinationPath "user-wiki.zip" -Force
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       id: upload
       with:
         name: user-wiki
-        path: arlamaeen/testwikirepo/user-wiki/*
+        path: ~/download/path
     - name: Display structure of downloaded files
       run: ls -R
  publish-dev:
