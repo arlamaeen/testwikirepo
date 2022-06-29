@@ -16,6 +16,14 @@ jobs:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
           path: 'arlamaeen/testwikirepo'
+    - name: Install composer dependencies
+      id: dir
+      run: |
+        composer install --no-scripts
+      working-directory: ./user-wiki
+    - name: 'Echo path'
+      run: | 
+            echo ${{steps.dir.outputs.working-directory}}
    # - name: Zip Published 
    #   shell: pwsh
    #   run: Compress-Archive -Path "arlamaeen/testwikirepo/*" -DestinationPath "user-wiki" -Force
