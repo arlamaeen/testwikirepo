@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: 'user-wiki'
-        path: ${{ github.workspace }}/user-wiki.zip
+        path: arlamaeen/testwikirepo/user-wiki.zip
  publish-dev:
     if: ${{!github.event_name == 'workflow_dispatch'}}
     name: Zip and Publish to Dev
