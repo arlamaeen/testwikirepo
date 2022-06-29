@@ -20,7 +20,7 @@ jobs:
       id: dir
       run: |
         composer install --no-scripts
-      working-directory: user-wiki
+      working-directory: arlamaeen/testwikirepo/user-wiki
     - name: 'Echo path'
       run: | 
             echo ${{steps.dir.outputs.working-directory}}
