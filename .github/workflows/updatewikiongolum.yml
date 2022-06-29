@@ -25,9 +25,8 @@ jobs:
       with:
         name: user-wiki
         path: arlamaeen/testwikirepo/user-wiki/*
-    - name: 'Echo upload path'
-      run: | 
-            echo ${{steps.upload.outputs.archive_download_url}}
+    - name: Display structure of downloaded files
+      run: ls -R
  publish-dev:
     if: ${{!github.event_name == 'workflow_dispatch'}}
     name: Zip and Publish to Dev
