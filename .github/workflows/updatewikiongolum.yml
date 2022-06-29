@@ -15,7 +15,10 @@ jobs:
       with:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
-          path: 'arlamaeen/testwikirepo'  
+          path: 'arlamaeen/testwikirepo'
+    - name: Make temp dir
+      run: |
+        mkdir -p ${{ github.workspace }}/artifact
     - name: Zip Published 
       shell: pwsh
       run: Compress-Archive -Path "arlamaeen/testwikirepo/user-wiki/*" -DestinationPath "user-wiki.zip" -Force
@@ -24,7 +27,7 @@ jobs:
       id: upload
       with:
         name: user-wiki
-        path: arlamaeen/testwikirepo/user-wiki
+        path: ${{ github.workspace }}/artifact
     - name: Display structure of downloaded files
       run: ls -R
  publish-dev:
