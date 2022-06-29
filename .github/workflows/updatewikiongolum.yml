@@ -68,7 +68,8 @@ jobs:
     - name: 'Echo download path'
       run: | 
             echo ${{steps.download.outputs.download-path}}
+            ls -R
     - shell: bash
       run: |
-          value=`cat ${{ github.workspace }}/artifact/user-wiki.zip`
+          value=`cat ${{ github.workspace }}/artifact/user-wiki.zip/user-wiki.zip`
           expr $value  
