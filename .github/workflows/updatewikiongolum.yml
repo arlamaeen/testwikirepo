@@ -15,7 +15,8 @@ jobs:
       with:
           repository: 'arlamaeen/testwikirepo.wiki'
           ref: 'master'
-          path: 'arlamaeen/testwikirepo/user-wiki'  
+          path: 'arlamaeen/testwikirepo'
+          dir: './user-wiki'
     #- name: Zip Published 
     #  shell: pwsh
     #  run: Compress-Archive -Path "arlamaeen/testwikirepo/*" -DestinationPath "user-wiki.zip" -Force
