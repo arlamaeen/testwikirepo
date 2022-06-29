@@ -45,16 +45,24 @@ jobs:
       run: |
         write-host "Trigger mo na si push file sa dev storage"
         write-host "${{ toJSON(github.event.inputs) }}"
- publish-prod:
-    if: ${{github.event_name == 'workflow_dispatch'}}
+ publish-prod:  
+    needs: zip-files
     name: Zip and Publish to Prod
-    runs-on: ubuntu-latest  
-    steps: 
-    - name: Download math result for job 1
-      uses: actions/download-artifact@v1
+    runs-on: ubuntu-latest
+    env :
+       admiralBaseUri: 'https://admiral-d.azurefd.net'
+       audienceUri: 'https://admiral-d.azurefd.net'  
+    steps:
+    - name: 'Download zip files'
+      id: 'download'
+      uses: actions/download-artifact@v2
       with:
-        name: homework
+        name: user-wiki
+        path: ~/admiral-artifact
+    - name: 'Echo download path'
+      run: | 
+            echo ${{steps.download.outputs.download-path}}
     - shell: bash
       run: |
-          value=`cat homework/user-wiki.zip`
+          value=`cat  ~/admiral-artifact/user-wiki.zip`
           expr $value  
