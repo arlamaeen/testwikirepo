@@ -21,9 +21,10 @@ jobs:
    #   run: Compress-Archive -Path "arlamaeen/testwikirepo/*" -DestinationPath "user-wiki" -Force
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
+      id: upload
       with:
-        name: 'user-wiki'
-        path: arlamaeen/testwikirepo/user-wiki.zip
+        name: user-wiki
+        path: arlamaeen/testwikirepo/user-wiki/*
  publish-dev:
     if: ${{!github.event_name == 'workflow_dispatch'}}
     name: Zip and Publish to Dev
