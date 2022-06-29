@@ -27,7 +27,7 @@ jobs:
       id: upload
       with:
         name: user-wiki
-        path: ${{ github.workspace }}/artifact/user-wiki.zip
+        path: ${{ github.workspace }}/artifact/*
     - name: Display structure of downloaded files
       run: ls -R
  publish-dev:
