@@ -25,6 +25,9 @@ jobs:
       with:
         name: user-wiki
         path: arlamaeen/testwikirepo/user-wiki/*
+    - name: 'Echo upload path'
+      run: | 
+            echo ${{steps.upload.outputs.archive_download_url}}
  publish-dev:
     if: ${{!github.event_name == 'workflow_dispatch'}}
     name: Zip and Publish to Dev
@@ -65,5 +68,5 @@ jobs:
             echo ${{steps.download.outputs.download-path}}
     - shell: bash
       run: |
-          value=`cat  ~/admiral-artifact/user-wiki.zip`
+          value=`cat  ${{steps.download.outputs.download-path}}/user-wiki.zip`
           expr $value  
