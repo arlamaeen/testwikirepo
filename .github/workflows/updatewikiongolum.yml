@@ -19,9 +19,9 @@ jobs:
     - name: Make temp dir
       run: |
         mkdir -p ${{ github.workspace }}/artifact
-    #- name: Zip Published 
-    #  shell: pwsh
-    #  run: Compress-Archive -Path "arlamaeen/testwikirepo/user-wiki/*" -DestinationPath "${{ github.workspace }}/artifact/user-wiki.zip" -Force
+    - name: Zip Published 
+      shell: pwsh
+      run: Compress-Archive -Path "arlamaeen/testwikirepo/user-wiki/*" -DestinationPath "${{ github.workspace }}/artifact/user-wiki.zip" -Force
     - name: "Upload zip file"
       uses: actions/upload-artifact@v2
       id: upload
@@ -64,11 +64,11 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: user-wiki
-        path: ~/download/path
+        path: ${{ github.workspace }}/artifact/
     - name: 'Echo download path'
       run: | 
             echo ${{steps.download.outputs.download-path}}
     - shell: bash
       run: |
-          value=`cat  ${{steps.download.outputs.download-path}}/user-wiki.zip`
+          value=`cat ${{ github.workspace }}/artifact/user-wiki.zip`
           expr $value  
